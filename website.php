@@ -1,6 +1,6 @@
 <?php
 
-session_start();
+/* session_start(); */
 function load_config($config_file)
 {
     global $Settings;

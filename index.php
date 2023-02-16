@@ -1,58 +1,65 @@
-<!doctype html>
-<html lang="en">
+<?php
+require_once 'header.php';
+?>
 
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="">
-	<meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-	<meta name="generator" content="Hugo 0.80.0">
-	<title>Furniture site</title>
-	<!-- Bootstrap core CSS -->
-	<link href="css/bootstrap.min.css" rel="stylesheet">
-	<!-- Custom styles for this template -->
-	<link href="css/mystyle.css" rel="stylesheet">
-</head>
-
-<body>
-
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark" aria-label="Eighth navbar example">
-		<div class="container">
-			<a class="navbar-brand" href="index.html">Furniture</a>
-			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample07"
-				aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-
-			<div class="collapse navbar-collapse" id="navbarsExample07">
-				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-				</ul>
-				<span class="d-flex">
-					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-						<li class="nav-item">
-							<a class="nav-link" aria-current="page" href="products.php">Products</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" aria-current="page" href="categories.php">Categories</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" aria-current="page" href="about-us.php">About Us</a>
-						</li>
-					</ul>
-				</span>
+<section class="hero d-flex align-items-center vh-100">
+	<div class="container text-center d-flex align-items-center justify-content-center">
+		<div class="col-md-6">
+			<h1>Welcome to Tennis Database</h1>
+			<p class="lead">Looking for a comprehensive tennis player database that also includes racquet information?
+				Look no further! Our database is the ultimate resource for avid tennis enthusiasts who want to know
+				everything about their favorite players and their racquets.</p>
+			<button class="btn btn-primary">Learn More</button>
+		</div>
+	</div>
+</section>
+<section class="cards mb-5">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4">
+				<div class="card h-100 mb-3 hover-shadow border">
+					<img src="img/nick-kyrgios.jpg" class="card-img-top rounded"
+						style="height: 25vh; object-fit: cover;" alt="Nick Kyrgios">
+					<div class="card-body text-center">
+						<h5 class="card-title">Tennis Players</h5>
+						<p class="card-text">Search through a database of tennis players</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="card h-100 mb-3 hover-shadow border">
+					<img src="img/wilson-bladev8.jpg" class="card-img-top rounded"
+						style="height: 25vh; object-fit: cover;" alt="Wilson Blade v8">
+					<div class="card-body text-center">
+						<h5 class="card-title">Racquet info</h5>
+						<p class="card-text">Get to know every detail about the racquets of the best players in the
+							world.</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="card h-100 mb-3 hover-shadow border">
+					<img src="img/miami-open.jpg" class="card-img-top rounded" style="height: 25vh; object-fit: cover;"
+						alt="Miami Open">
+					<div class="card-body text-center">
+						<h5 class="card-title">About Us</h5>
+						<p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ac nisi vel
+							risus luctus tincidunt. Fusce a elit vitae metus egestas dapibus.</p>
+					</div>
+				</div>
 			</div>
 		</div>
-	</nav>
+	</div>
+</section>
+<?php
+require_once 'footer.php';
+?>
 
-	<main class="container">
-		<div class="starter-template text-center">
-			<h1>Bootstrap starter template</h1>
-			<p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text
-				and a mostly barebones HTML document.</p>
-		</div>
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.4.0/dist/js/bootstrap.bundle.min.js"></script>
 
-	</main><!-- /.container -->
-	<script src="js/bootstrap.bundle.min.js"></script>
+
+
 </body>
 
 </html>
