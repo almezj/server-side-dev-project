@@ -1,5 +1,7 @@
 <?php
 
+require 'Library/DB.php';
+
 /* session_start(); */
 function load_config($config_file)
 {
@@ -8,9 +10,19 @@ function load_config($config_file)
 
 }
 
+function loader_of_classes($class_name)
+{
+    $file = str_replace('\\', '/', $class_name) . '.php';
+    require_once ((file_exists('Library/' . $file)) ? 'Library/' . $file : '../Library/' . $file);
+
+}
+
+
+spl_autoload_register('loader_of_classes');
 
 load_config('config.ini');
 
-$db = new DB($Settings['db_host'], $Settings['db_port'], $Settings['db_user'], $Settings['db_pass'], $Settings['db_name'], false);
+$db = new DB($Settings['db_host'], $Settings['db_port'], $Settings['db_user'], $Settings['db_pass'], $Settings['db_name']);
+
 
 ?>

@@ -1,6 +1,12 @@
 <?php
 
+/*
+** @author: Josef Zemlicka
+*/
 
+class DBException extends Exception
+{
+}
 class DB
 {
 	private $db = false;
@@ -11,7 +17,7 @@ class DB
 	private $database;
 	private $socket;
 
-	public function __construct($host, $port, $user, $password, $database, $socket)
+	public function __construct($host, $port, $user, $password, $database, $socket = false)
 	{
 		$this->host = $host;
 		$this->port = $port;
@@ -52,15 +58,6 @@ class DB
 		if ($this->db) {
 			mysqli_close($this->db);
 			$this->db = false;
-		}
-		return true;
-	}
-
-	public function select_db($db)
-	{
-		$this->check();
-		if (!@mysqli_select_db($db, $this->db)) {
-			throw new DBException("Could not Select DB: $db. MySql Error: " . $this->error());
 		}
 		return true;
 	}
