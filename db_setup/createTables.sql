@@ -8,7 +8,6 @@ CREATE TABLE players (
   first_name VARCHAR(50) NOT NULL,
   last_name VARCHAR(50) NOT NULL,
   country VARCHAR(50) NOT NULL,
-  ranking INT NOT NULL,
   points INT NOT NULL,
   birth_date DATE NOT NULL
 );
@@ -27,26 +26,26 @@ CREATE TABLE racquet_specifications (
 
 -- Insert data into the players table
 INSERT INTO players (first_name, last_name, country, ranking, points, birth_date)
-VALUES ("Novak", "Djokovic", "SRB", 1, 7070, '1987-05-22'),
-	   ("Carlos", "Alcaraz", "ESP", 2, 6480, '2003-05-05)'),
-	   ("Stefanos", "Tsitsipas", "GRE", 3, 5940, '1998-08-12'),
-	   ("Casper", "Ruud", "NOR", 4, 5515, '1998-12-22'),
-	   ("Andrey", "Rublev", "RUS", 5, 3860, '1997-10-20'),
-	   ("Rafael", "Nadal", "ESP", 6, 3815, '1986-06-03'),
-	   ("Taylor", "Fritz", "USA", 7, 3660, '1997-10-28'),
-	   ("Daniil", "Medvedev", "RUS", 8, 3805, '1996-02-11'),
-	   ("Felix", "Auger-Aliassime", "CAN", 9, 3200, '2000-08-08'),
-	   ("Holger", "Rune", "NOR", 10, 3161, '1997-06-20'),
-	   ("Hubert", "Hurkacz", "POL", 11, 2995, '1997-02-11'),
-	   ("Jannik", "Sinner", "ITA", 12, 2745, '2001-08-16'),
-	   ("Cameron", "Norrie", "GBR", 13, 2615, '1995-08-23'),
-	   ("Karen", "Khachanov", "RUS", 14, 2470, '1996-05-21'),
-	   ("Frances", "Tiafoe", "USA", 15, 2350, '1998-01-20'),
-	   ("Alexander", "Zverev", "GER", 16, 2320, '1997-04-20'),
-	   ("Pablo Carenno", "Busta", "ESP", 17, 2285, '1991-07-12'),
-	   ("Lorenzo", "Musetti", "ITA", 18, 1855, '2002-03-03' ),
-	   ("Nick", "Kyrgios", "AUS", 19, 1825, '1995-04-27'),
-	   ("Borna", "Coric", "CRO", 20, 1815, '1996-11-14');
+VALUES ("Novak", "Djokovic", "SRB",  7070, '1987-05-22'),
+	   ("Carlos", "Alcaraz", "ESP",  6480, '2003-05-05)'),
+	   ("Stefanos", "Tsitsipas", "GRE", 5940, '1998-08-12'),
+	   ("Casper", "Ruud", "NOR", 5515, '1998-12-22'),
+	   ("Andrey", "Rublev", "RUS", 3860, '1997-10-20'),
+	   ("Rafael", "Nadal", "ESP", 3815, '1986-06-03'),
+	   ("Taylor", "Fritz", "USA", 3660, '1997-10-28'),
+	   ("Daniil", "Medvedev", "RUS", 3805, '1996-02-11'),
+	   ("Felix", "Auger-Aliassime", "CAN", 3200, '2000-08-08'),
+	   ("Holger", "Rune", "NOR",  3161, '1997-06-20'),
+	   ("Hubert", "Hurkacz", "POL",  2995, '1997-02-11'),
+	   ("Jannik", "Sinner", "ITA",  2745, '2001-08-16'),
+	   ("Cameron", "Norrie", "GBR",  2615, '1995-08-23'),
+	   ("Karen", "Khachanov", "RUS",  2470, '1996-05-21'),
+	   ("Frances", "Tiafoe", "USA",  2350, '1998-01-20'),
+	   ("Alexander", "Zverev", "GER",  2320, '1997-04-20'),
+	   ("Pablo Carenno", "Busta", "ESP",  2285, '1991-07-12'),
+	   ("Lorenzo", "Musetti", "ITA",  1855, '2002-03-03' ),
+	   ("Nick", "Kyrgios", "AUS",  1825, '1995-04-27'),
+	   ("Borna", "Coric", "CRO",  1815, '1996-11-14');
 
 
 -- Insert data into the racquet_specifications table

@@ -7,20 +7,13 @@
 
 class Racquet
 {
-
-	function __construct()
-	{
-		global $db;
-		$this->db = $db;
-	}
-
-	function get_racquet_details($player_id)
+	static function get_racquet_details($player_id)
 	{
 
 		global $db;
 
 		$sql = "SELECT * 
-		        FROM racquets 
+		        FROM racquet_specifications 
 				WHERE player_id = $player_id";
 
 
@@ -44,13 +37,13 @@ class Racquet
 		
 	}
 
-	function get_racquet_list()
+	static function get_racquet_list()
 	{
 
 		global $db;
 
 		$sql = "SELECT * 
-		        FROM racquets";
+		        FROM racquet_specifications";
 
 		$res = $db->query($sql);
 
@@ -71,12 +64,12 @@ class Racquet
 		}
 	}
 
-	function add_racquet($player_id, $brand, $model, $head_size, $weight, $balance, $string_pattern)
+	static function add_racquet($player_id, $brand, $model, $head_size, $weight, $balance, $string_pattern)
 	{
 
 		global $db;
 
-		$sql = "INSERT INTO racquets (player_id, brand, model, head_size, weight, balance, string_pattern) 
+		$sql = "INSERT INTO racquet_specifications (player_id, brand, model, head_size, weight, balance, string_pattern) 
 		        VALUES (?, ?, ?, ?, ?, ?, ?)";
 
 		$stmt = $db->prepare($sql);
@@ -90,11 +83,11 @@ class Racquet
 
 	}
 
-	function delete_racquet($spec_id)
+	static function delete_racquet($spec_id)
 	{
 		global $db;
 
-		$sql = "DELETE FROM racquets 
+		$sql = "DELETE FROM racquet_specifications 
 		        WHERE id = $spec_id";
 
 		if ($db->query($sql)) {

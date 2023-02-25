@@ -1,0 +1,7 @@
+RewriteEngine On
+
+# Redirect all requests to not existing files to not-found.php
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ not-found.php [L]

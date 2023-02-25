@@ -1,1 +1,8 @@
 /* Add your own CSS under here */
+.footer-bs{
+	background-color: #ececec;
+	box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+}
+.footer-item {
+	color: #999999;
+}

@@ -10,10 +10,9 @@ require_once 'header.php';
 	</div>
 
 </main><!-- /.container -->
+<script src="js/bootstrap.bundle.min.js"></script>
+</body>
 <?php
 require_once 'footer.php';
 ?>
-<script src="js/bootstrap.bundle.min.js"></script>
-</body>
-
 </html>
