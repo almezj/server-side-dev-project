@@ -51,15 +51,9 @@ require_once 'header.php';
 		</div>
 	</div>
 </section>
-<?php
-require_once 'footer.php';
-?>
 
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.4.0/dist/js/bootstrap.bundle.min.js"></script>
-
-
-
 </body>
-
+<?php require_once 'footer.php'; ?>
 </html>
