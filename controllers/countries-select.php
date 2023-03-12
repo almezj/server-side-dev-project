@@ -2,7 +2,7 @@
 
 // Path: controllers/countries.php
 
-$select = '<select name="country" id="country">';
+$select = '<select class="form-select" name="country" id="country-select" aria-label="Country select" required>';
 $countries = array(
     "AFG" => "Afghanistan",
     "ALA" => "Åland Islands",

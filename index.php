@@ -4,16 +4,16 @@ require_once 'header.php';
 
 <section class="hero d-flex align-items-center vh-100">
 	<div class="container text-center d-flex align-items-center justify-content-center">
-		<div class="col-md-6">
-			<h1>Welcome to Tennis Database</h1>
+		<div class="col-md-10">
+			<h1 class="mainHeading">Welcome to Tennis Database</h1>
 			<p class="lead">Looking for a comprehensive tennis player database that also includes racquet information?
 				Look no further! Our database is the ultimate resource for avid tennis enthusiasts who want to know
 				everything about their favorite players and their racquets.</p>
-			<button class="btn btn-primary">Learn More</button>
+			<button class="btn btn-primary" onclick="location.href='players.php'">Find Players</button>
 		</div>
 	</div>
 </section>
-<section class="cards mb-5">
+<section class="cards mb-5 mt-5">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-4">
@@ -23,6 +23,9 @@ require_once 'header.php';
 					<div class="card-body text-center">
 						<h5 class="card-title">Tennis Players</h5>
 						<p class="card-text">Search through a database of tennis players</p>
+					</div>
+					<div class="card-footer mt-auto text-center">
+						<button class="btn btn-primary" onclick="location.href='players.php'">Learn More</button>
 					</div>
 				</div>
 			</div>
@@ -34,6 +37,10 @@ require_once 'header.php';
 						<h5 class="card-title">Racquet info</h5>
 						<p class="card-text">Get to know every detail about the racquets of the best players in the
 							world.</p>
+
+					</div>
+					<div class="card-footer mt-auto text-center">
+						<button class="btn btn-primary" onclick="location.href='racquets.php'">Learn More</button>
 					</div>
 				</div>
 			</div>
@@ -46,14 +53,17 @@ require_once 'header.php';
 						<p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ac nisi vel
 							risus luctus tincidunt. Fusce a elit vitae metus egestas dapibus.</p>
 					</div>
+					<div class="card-footer mt-auto text-center">
+						<button class="btn btn-primary" onclick="location.href='about-us.php'">Learn More</button>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
 </section>
-
 <!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.4.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+<script src="js/bootstrap.min.js"></script>
+
 <?php require_once 'footer.php'; ?>
+</body>
+
 </html>

@@ -8,65 +8,72 @@ $table_contents = "";
 require 'Library/Racquet.php';
 
 
-$racquets = Racquet::get_racquet_list();
+$racquets = Racquet::get_racquet_list(true);
 
-$sortby = $_GET['sortby'] ?? 'ranking';
+$sortby = $_GET['sortby'] ?? 'brand';
 
-if ($sortby === 'fname') {
-	usort($players, function($a, $b) {
-		return $a['first_name'] <=> $b['first_name'];
+if ($sortby === 'brand') {
+	usort($racquets, function($a, $b) {
+		return $a['brand'] <=> $b['brand'];
 	});
-} elseif ($sortby === 'lname') {
-	usort($players, function($a, $b) {
-		return $a['last_name'] <=> $b['last_name'];
+} elseif ($sortby === 'model') {
+	usort($racquets, function($a, $b) {
+		return $a['model'] <=> $b['model'];
 	});
-} elseif ($sortby === 'country') {
-	usort($players, function($a, $b) {
-		return $a['country'] <=> $b['country'];
+} elseif ($sortby === 'head_size') {
+	usort($racquets, function($a, $b) {
+		return $a['head_size'] <=> $b['head_size'];
 	});
-} elseif ($sortby === 'ranking') {
-	usort($players, function($a, $b) {
-		return $a['ranking'] <=> $b['ranking'];
+} elseif ($sortby === 'weight') {
+	usort($racquets, function($a, $b) {
+		return $a['weight'] <=> $b['weight'];
 	});
-} elseif ($sortby === 'age') {
-	usort($players, function($a, $b) {
-		return $a['birth_date'] <=> $b['birth_date'];
+} elseif ($sortby === 'string_pattern') {
+	usort($racquets, function($a, $b) {
+		return $a['string_pattern'] <=> $b['string_pattern'];
 	});
 }
 
 if(isset($_GET['delete'])){
-    $player_id = $_GET['delete'];
+    $spec_id = $_GET['delete'];
+	$racquet = Racquet::get_racquet_details($spec_id);
+	$player_id = $racquet['player_id'];
+	$usedby = Player::get_player_details($player_id)['first_name'] . " " . Player::get_player_details($player_id)['last_name'];
     echo "<script>
-            var confirmDelete = confirm('Are you sure you want to delete this player?');
+            var confirmDelete = confirm('Are you sure you want to delete this racquet? This racquet is used by ${usedby}');
             if(confirmDelete){
-                window.location.href = '?page=players&confirm_delete=' + $player_id;
+                window.location.href = '?page=racquets&confirm_delete=' + $spec_id;
             }
          </script>";
 }
 
 if(isset($_GET['confirm_delete'])){
-    $player_id = $_GET['confirm_delete'];
-    Player::delete_player($player_id);
-    header("Location: ?page=players");
+    $spec_id = $_GET['confirm_delete'];
+    Racquet::delete_racquet($player_id);
+    header("Location: ?page=racquets");
 }
 
-foreach($players as $player){
-	$player_age = date_diff(date_create($player['birth_date']), date_create('now'))->y;
+if(isset($_GET['edit'])){
+	$spec_id = $_GET['edit'];
+	header("Location: ?page=racquets&edit_racquet=" . $spec_id);
+}
+
+
+foreach($racquets as $racquet){
+	$player_abbrv_name = substr($racquet['usedby']['first_name'], 0, 1) . ". " . $racquet['usedby']['last_name'];
+	$table_contents .= "<tr>";
 	$table_row = "";
-	$table_row .= "<tr>";
-	$table_row .= "<td>" . $player['first_name'] . "</td>";
-	$table_row .= "<td>" . $player['last_name'] . "</td>";
-	$table_row .= "<td>" . $player['country'] . "</td>";
-	$table_row .= "<td>" . $player['ranking'] . "</td>";
-	$table_row .= "<td>" . $player['points'] . "</td>";
-	$table_row .= "<td>" . $player_age . "</td>";
-	$table_row .= "<td>" . $player['birth_date'] . "</td>";
-	$table_row .= "<td><a href='?page=players&delete=" . $player['player_id'] . "'>Delete</a></td>";
-	$table_row .= "</tr>";
+	$table_row .= "<td>" . $racquet['brand'] . "</td>";
+	$table_row .= "<td>" . $racquet['model'] . "</td>";
+	$table_row .= "<td>" . $racquet['head_size'] . 'in<sup>2</sup>' . "</td>";
+	$table_row .= "<td>" . $racquet['weight'] . 'g' . "</td>";
+	$table_row .= "<td>" . $racquet['string_pattern'] . "</td>";
+	$table_row .= "<td>" . $player_abbrv_name . "</td>";
+	$table_row .= "<td><a href='?page=racquets&delete=" . $racquet['spec_id'] . "'><i class='fas fa-trash-alt'></i></a></td>";
 	$table_contents .= $table_row;
 }
 
-$htmlstring = $table_contents ? $table_contents : "<tr><td colspan='8'>No players found</td></tr>";
+$htmlstring = $table_contents ? $table_contents : "<tr><td colspan='8'>No racquets found</td></tr>";
 
 echo $htmlstring;
 

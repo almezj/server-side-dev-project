@@ -34,6 +34,7 @@ foreach ($players as $index => $player) {
 
 $sortby = $_GET['sortby'] ?? 'points';
 
+//if the table is already sorted and the user clicks on the same column, the table will be sorted in the opposite direction
 
 
 if ($sortby === 'fname') {
@@ -52,7 +53,7 @@ if ($sortby === 'fname') {
 	usort($ranked_players, function($a, $b) {
 		return $a['country'] <=> $b['country'];
 	});
-} elseif ($sortby === 'birth_date') {
+} elseif ($sortby === 'age') {
 	usort($ranked_players, function($a, $b) {
 		return $a['birth_date'] <=> $b['birth_date'];
 	});
@@ -88,7 +89,7 @@ foreach($ranked_players as $r_player){
 	$table_row .= "<td>" . $r_player['points'] . "</td>";
 	$table_row .= "<td>" . $r_player_age . "</td>";
 	$table_row .= "<td>" . $r_player['birth_date'] . "</td>";
-	$table_row .= "<td><a href='?page=players&delete=" . $r_player['player_id'] . "'>Delete</a></td>";
+	$table_row .= "<td><a href='?page=players&delete=" . $r_player['player_id'] . "'><i class='fas fa-trash-alt'></i></a></td>";
 	$table_row .= "</tr>";
 	$table_contents .= $table_row;
 }
@@ -96,5 +97,6 @@ foreach($ranked_players as $r_player){
 $htmlstring = $table_contents ? $table_contents : "<tr><td colspan='8'>No players found</td></tr>";
 
 echo $htmlstring;
+
 
 ?>

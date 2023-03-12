@@ -19,23 +19,28 @@ $name = $_POST['name'];
 $email_address = $_POST['email'];
 $message = $_POST['message'];
 
+
 if (!preg_match(
-"/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/i",
-$email_address))
+    "/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/i",
+    $email_address))
 {
     $errors .= "\n Error: Invalid email address";
 }
 
-if( empty($errors))
-{
-        $to = $myemail;
-        $email_subject = "Contact form submission: $name";
-        $email_body = "You have received a new message. ".
-        " Here are the details:\n Name: $name \n Email: $email_address \n Message \n $message";
+if (empty($errors)) {
+  $to = $myemail;
+  $email_subject = "Contact form submission: $name";
+  $email_body = "You have received a new message. ".
+    " Here are the details:\n Name: $name \n Email: $email_address \n Message \n $message";
 
-        mail($to,$email_subject,$email_body,$headers);
-        //redirect to the 'thank you' page
-        header('Location: contact-form-thank-you.html');
+  mail($to,$email_subject,$email_body,$headers);
+
+  echo json_encode(array('type' => 'success', 'msg' => 'Thank you for contacting us. We will be in touch with you very soon.'));
+  
+} else {
+
+  echo json_encode(array('type' => 'error', 'msg' => $errors));
+
 }
 ?>
 <!DOCTYPE HTML>

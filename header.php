@@ -1,6 +1,4 @@
-<?php 
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+<?php
 include_once 'website.php';
 ?>
 
@@ -24,6 +22,11 @@ include_once 'website.php';
 	<script src="js/bootstrap.bundle.min.js"></script>
 	<!-- MDB -->
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.js"></script>
+	<!-- Include Font Awesome CSS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+		crossorigin="anonymous" />
+	<!-- jQuery -->
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 </head>
 
@@ -31,7 +34,8 @@ include_once 'website.php';
 
 	<nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
 		<div class="container">
-			<a class="navbar-brand" href="index.php" data-mdb-toggle="animation" data-mdb-animation-reset="true" data-mdb-animation="fade-in-up">Tennis database</a>
+			<a class="navbar-brand" href="index.php" data-mdb-toggle="animation" data-mdb-animation-reset="true"
+				data-mdb-animation="fade-in-up">Tennis database</a>
 			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
 				aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>

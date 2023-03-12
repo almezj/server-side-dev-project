@@ -137,6 +137,11 @@ class DB
 	{
 		return mysqli_info($this->db);
 	}
+
+	public function insert_id()
+	{
+		return mysqli_insert_id($this->db);
+	}
 }
 
 ?>
