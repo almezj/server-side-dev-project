@@ -98,7 +98,7 @@ class Racquet
 		global $db;
 
 		$sql = "DELETE FROM racquet_specifications 
-		        WHERE id = $spec_id";
+		        WHERE spec_id = $spec_id";
 
 		if ($db->query($sql)) {
 			return true;

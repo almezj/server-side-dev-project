@@ -37,10 +37,8 @@ if ($sortby === 'brand') {
 if(isset($_GET['delete'])){
     $spec_id = $_GET['delete'];
 	$racquet = Racquet::get_racquet_details($spec_id);
-	$player_id = $racquet['player_id'];
-	$usedby = Player::get_player_details($player_id)['first_name'] . " " . Player::get_player_details($player_id)['last_name'];
     echo "<script>
-            var confirmDelete = confirm('Are you sure you want to delete this racquet? This racquet is used by ${usedby}');
+            var confirmDelete = confirm('Are you sure you want to delete this racquet?');
             if(confirmDelete){
                 window.location.href = '?page=racquets&confirm_delete=' + $spec_id;
             }
@@ -49,7 +47,7 @@ if(isset($_GET['delete'])){
 
 if(isset($_GET['confirm_delete'])){
     $spec_id = $_GET['confirm_delete'];
-    Racquet::delete_racquet($player_id);
+    Racquet::delete_racquet($spec_id);
     header("Location: ?page=racquets");
 }
 
